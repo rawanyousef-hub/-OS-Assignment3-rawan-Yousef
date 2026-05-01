@@ -102,8 +102,9 @@ class Process implements Runnable {
     
     @Override
     public void run() {
-        // TODO #3: Acquire CPU semaphore before executing
-        // This ensures only allowed number of processes run simultaneously
+     try{
+         sharedResources.cpuSemaphore.acquare();
+     
         
         try {
             if (startTime == -1) {
@@ -132,7 +133,7 @@ class Process implements Runnable {
                     quantumBar = createProgressBar(quantumProgress, 15);
                     System.out.print("\r  " + Colors.YELLOW + "⚡" + Colors.RESET + 
                                     " Quantum progress: " + quantumBar);
-                }
+                         }
                 System.out.println();
                 
             } catch (InterruptedException e) {
