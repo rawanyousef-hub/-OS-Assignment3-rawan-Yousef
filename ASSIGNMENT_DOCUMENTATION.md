@@ -57,16 +57,16 @@ Document your development process with **minimum 3 entries** showing progression
 
 ---
 
-### Entry 3 - [Date, Time]
-**What I implemented**: 
+### Entry 3 - [april 29, 2:00pm ]
+**add semaphore to control cpu access and use it in the process execution method **: 
 
-**Challenges encountered**: 
+**i made some mistake  in the name method like acquir eand release**: 
 
-**How I solved it**: 
+** coorect the syntax error **: 
 
-**Testing approach**: 
+**run the simulation h**: 
 
-**Time spent**: 
+**40 min**: 
 
 ---
 
