@@ -64,7 +64,7 @@ public static final Semaphore cpuSemaphore = new Semaphore(1);
     public static void addWaitingTime(long time) {
       waitingTimeLOCK.lock();
         try{
-            totalwaitinrTime +=time;
+            totalwaitingTime +=time;
         } finally {
             waitingTimeLOCK.unlock();
         }
