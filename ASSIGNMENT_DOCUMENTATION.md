@@ -115,7 +115,7 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Deadlock happen  when the  threads waiting for each other forever and none of them can continue One prevention technique is using try-finally blocks, because the lock or semaphore always be released even if error happens Another technique is avoid holding multiple locks at the same time  In my code, I used finally to call unlock() or release() after the critical section. This helps prevent deadlock because resources are not left locked.]
+[reentrantlock used to protect critical section  only one thread can update share data at time i use reentranlock to protect the counter and execution  log because this share resource should't modified by multiple thread at the same time ,semaphore control how manny threads can access resource i use binary semaphore with one permit to control cpu  access , onlyonly one proceess can execute on yhe cpu at the time .]
 
 ---
 
@@ -124,7 +124,7 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - reference try-finally blocks, lock ordering, etc.]
+[[Deadlock happen  when the  threads waiting for each other forever and none of them can continue One prevention technique is using try-finally blocks, because the lock or semaphore always be released even if error happens Another technique is avoid holding multiple locks at the same time  In my code, I used finally to call unlock() or release() after the critical section. This helps prevent deadlock because resources are not left locked..]
 
 ---
 
@@ -137,7 +137,7 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - explain coarse-grained vs fine-grained locking, independence of counters, concurrency implications. Show understanding of when to use each approach. 5-8 sentences expected.]
+[For Task 1 I use separate locks for each counter  is fine-grained locking. I use contextSwitchLock, completedProcessLock, and waitingTimeLock because the three counters are independent. This means updating one counter doesn't need to block another counter. Fine-grained locking gives better concurrency because different threads can update different counters at the same time. Coarse-grained locking uses one lock for all counters, and it is simpler, but it reduces concurrency. The trade-off is that fine-grained locking needs more code, while coarse-grained locking is easier to manage. Since the counters are independent, fine-grained locking is the better choice here..]
 
 ---
 
