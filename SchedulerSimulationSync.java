@@ -39,12 +39,16 @@ public static final ReentrantLock logLock = new ReentrantLock();
     public static int completedProcessCount = 0;   // Shared counter - NEEDS PROTECTION!
     public static long totalWaitingTime = 0;       // Shared accumulator - NEEDS PROTECTION!
     public static List<String> executionLog = new ArrayList<>();  // Shared list - NEEDS PROTECTION!
-    
-    // TODO #1: Add a ReentrantLock(s) here to protect critical sections
-    // Example: public static final ReentrantLock lock = new ReentrantLock();
-    
-    // TODO #2: Add a Semaphore to limit concurrent process execution
-    // Example: public static final Semaphore cpuSemaphore = new Semaphore(1);
+   
+    //increment context
+    public static void incrementContextSwitch() {
+    contextSwitchLock.lock();
+    try {
+        contextSwitchCount++;
+    } finally {
+        contextSwitchLock.unlock();
+    }
+}
     
     // Method to increment context switch counter
     public static void incrementContextSwitch() {
