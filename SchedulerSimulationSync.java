@@ -166,9 +166,11 @@ class Process implements Runnable {
             System.out.println();
             
         } finally {
-            // TODO #4: Release CPU semaphore here
-            // Always release in finally block to prevent deadlocks!
+           sharedResources.cpuSemaphore.release();
         }
+     } catch (InterruptedException e) {
+         system.out.println(colors.RED + " X" + name + "semaphore in ");
+      }
     }
     
     private String createProgressBar(int progress, int width) {
