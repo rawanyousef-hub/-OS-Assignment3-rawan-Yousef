@@ -34,28 +34,22 @@ public static final ReentrantLock completedProcessLock = new ReentrantLock();
 public static final ReentrantLock waitingTimeLock = new ReentrantLock();
 public static final ReentrantLock logLock = new ReentrantLock();
     
-    
+    // Binary semaphore - only 1 process can "execute" at a time
+public static final Semaphore cpuSemaphore = new Semaphore(1);
     public static int contextSwitchCount = 0;      // Shared counter - NEEDS PROTECTION!
     public static int completedProcessCount = 0;   // Shared counter - NEEDS PROTECTION!
     public static long totalWaitingTime = 0;       // Shared accumulator - NEEDS PROTECTION!
     public static List<String> executionLog = new ArrayList<>();  // Shared list - NEEDS PROTECTION!
-   
-    //increment context
+    
+    // Method to increment context switch counter
     public static void incrementContextSwitch() {
-    contextSwitchLock.lock();
+       contextSwitchLock.lock();
     try {
         contextSwitchCount++;
     } finally {
         contextSwitchLock.unlock();
     }
 }
-    
-    // Method to increment context switch counter
-    public static void incrementContextSwitch() {
-        // TODO: Protect this critical section with a lock
-        // RACE CONDITION: Multiple threads might read and write simultaneously!
-        contextSwitchCount++;
-    }
     
     // Method to increment completed process counter
     public static void incrementCompletedProcess() {
