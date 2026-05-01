@@ -31,16 +31,16 @@
 
 Document your development process with **minimum 3 entries** showing progression:
 
-### Entry 1 - [Date, Time]
-**What I implemented**: 
+### Entry 1 - [ appril 29, 4:00 pm]
+**i add my student id in the code and explore the projrct **: 
 
-**Challenges encountered**: 
+** i don't nokw where to start the tood**: 
 
-**How I solved it**: 
+** read the readme file **: 
 
-**Testing approach**: 
+**run the program to make sure its work **: 
 
-**Time spent**: 
+**45min**: 
 
 ---
 
