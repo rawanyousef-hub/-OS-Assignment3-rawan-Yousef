@@ -53,10 +53,10 @@ public static final Semaphore cpuSemaphore = new Semaphore(1);
     
     // Method to increment completed process counter
     public static void incrementCompletedProcess() {
-   completedProcessLOCK.unlock();
+   completedProcessLOCK.lock();
     try{
         completedProcessCount++;
-    }finaly{
+    }finally{
         completedProcessLOCK.unlck();
     }
     }
@@ -65,7 +65,7 @@ public static final Semaphore cpuSemaphore = new Semaphore(1);
       waitingTimeLOCK.lock();
         try{
             totalwaitinrTime +=time;
-        } finaly {
+        } finally {
             waitingTimeLOCK.unlock();
         }
     }
@@ -106,7 +106,7 @@ class Process implements Runnable {
     @Override
     public void run() {
      try{
-         sharedResources.cpuSemaphore.acquare();
+         sharedResources.cpuSemaphore.acquaire();
      
         
         try {
