@@ -62,8 +62,13 @@ public static final Semaphore cpuSemaphore = new Semaphore(1);
     }
     // Method to add waiting time
     public static void addWaitingTime(long time) {
-        // TODO: Protect this critical section with a lock
-        totalWaitingTime += time;
+      waitingTimeLOCK.lock();
+        try{
+            totalwaitinrTime +=time;
+        } finaly {
+            waitingTimeLOCK.unlock();
+        }
+    }
     
     
     // Method to log execution
@@ -71,8 +76,8 @@ public static final Semaphore cpuSemaphore = new Semaphore(1);
         // TODO: Protect this critical section with a lock
         // RACE CONDITION: ArrayList is not thread-safe!
         executionLog.add(message);
-    }
-}
+    
+
 
 // Class representing a process that implements Runnable to be run by a thread
 class Process implements Runnable {
