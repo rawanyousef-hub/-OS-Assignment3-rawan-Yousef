@@ -106,7 +106,7 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - 4-6 sentences with code examples]
+[ race condition hapen with share counter like contextswitchcount and completedprocesscount the variable are share between threads and if two threads update them at the same time one update may be lost for example if two processes execute cntextswitchcounter++ at the same time the final value may increase 1 of 2 another race condition can hapen with executionlog because arraylist and multiple thread may add messages at the same time it can be incorrect log]
 
 ---
 
@@ -115,7 +115,7 @@ Document your development process with **minimum 3 entries** showing progression
 
 **Your Answer**:
 
-[Your answer here - explain your implementation choices]
+[Deadlock happen  when the  threads waiting for each other forever and none of them can continue One prevention technique is using try-finally blocks, because the lock or semaphore always be released even if error happens Another technique is avoid holding multiple locks at the same time  In my code, I used finally to call unlock() or release() after the critical section. This helps prevent deadlock because resources are not left locked.]
 
 ---
 
