@@ -44,16 +44,16 @@ Document your development process with **minimum 3 entries** showing progression
 
 ---
 
-### Entry 2 - [Date, Time]
-**What I implemented**: 
+### Entry 2 - [april 29, 5:00]
+**add reentratlock to protect shared variable like contextswitchcount**: 
 
-**Challenges encountered**: 
+**how use lock and unlock**: 
 
-**How I solved it**: 
+** see example in readme and use try finally **: 
 
-**Testing approach**: 
+**test the program without error**: 
 
-**Time spent**: 
+**30min**: 
 
 ---
 
