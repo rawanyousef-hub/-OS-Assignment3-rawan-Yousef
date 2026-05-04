@@ -136,8 +136,7 @@ Document your development process with **minimum 3 entries** showing progression
 - Given that the three counters are independent, which approach provides better concurrency and why?
 
 **Your Answer**:
-
-[For Task 1 I use separate locks for each counter  is fine-grained locking. I use contextSwitchLock, completedProcessLock, and waitingTimeLock because the three counters are independent. This means updating one counter doesn't need to block another counter. Fine-grained locking gives better concurrency because different threads can update different counters at the same time. Coarse-grained locking uses one lock for all counters, and it is simpler, but it reduces concurrency. The trade-off is that fine-grained locking needs more code, while coarse-grained locking is easier to manage. Since the counters are independent, fine-grained locking is the better choice here..]
+For Task 1, I used separate locks for each counter, which is considered fine-grained locking. I used different locks such as contextSwitchLock, completedProcessLock, and waitingTimeLock because the counters are independent. This means updating one counter does not block other counters. Fine-grained locking provides better concurrency since multiple threads can update different counters at the same time. However, it requires more code and careful management. In contrast, coarse-grained locking uses one lock for all counters, which is simpler but reduces concurrency. Since the counters are independent, fine-grained locking is the better choice in this cas.
 
 ---
 
@@ -146,15 +145,18 @@ Document your development process with **minimum 3 entries** showing progression
 ### Critical Section #1: Counter Variables
 
 **Which variables**: 
-
+contextSwitchCount, completedProcessCount, and totalWaitingTime.
 **Why they need protection**: 
-
+variables are shared between multiple threads, so they need protection to avoid race conditions and incorrect values when multiple threads try to update them at the same time.
 **Synchronization mechanism used**: 
-
+ used ReentrantLock to protect each counter separately, ensuring that only one thread can update a counter at a time.
 **Code snippet**:
-```java
-// Paste your implementation here
-```
+contextSwitchLock.lock();
+try {
+    SharedResources.contextSwitchCount++;
+} finally {
+    contextSwitchLock.unlock();
+}
 
 **Justification**: 
 
