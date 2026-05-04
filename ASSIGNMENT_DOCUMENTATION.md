@@ -19,7 +19,7 @@
 **Video filename**: `[YourStudentID]_Assignment3_Synchronization.mp4`
 
 **Verification**:
-- [ ] Link is accessible (tested in incognito mode)
+- [ https://drive.google.com/file/d/1jxLzRFbPejg-8SRRSd9yAU2d7PDnX3x9/view?usp=drivesdk] Link is accessible (tested in incognito mode)
 - [ ] Video is 3-5 minutes long
 - [ ] Video shows code walkthrough and commits
 - [ ] Video has clear audio
