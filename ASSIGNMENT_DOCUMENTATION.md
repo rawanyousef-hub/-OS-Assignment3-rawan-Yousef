@@ -207,17 +207,13 @@ The CPU semaphore prevents more than one process from using the CPU at the same 
 **What I tested**: Running program multiple times to verify consistent results
 
 **Testing procedure**: 
-```bash
-# Commands used (run the program at least 5 times)
-```
+I run the program multiple times (at least 5 times) to check if the results remain consistent in each run.
 
 **Results**: 
-(Show that running multiple times produces consistent, correct results)
+The results were consistent across all runs. The number of completed processes, context switches, and waiting times remained correct and stable.
 
 **Why synchronization is necessary**: 
-(Explain what race conditions COULD occur without synchronization, even if you didn't observe them. Explain which shared resources need protection and why.)
-
-**Conclusion**: 
+(Synchronization is necessary to prevent race conditions when multiple threads access shared resources such as counters and execution logs. Without synchronization, the values could become incorrect or inconsistent because multiple threads may update the same variable at the same time.
 
 ---
 
@@ -225,57 +221,54 @@ The CPU semaphore prevents more than one process from using the CPU at the same 
 **What I tested**: Checking for ConcurrentModificationException
 
 **Testing procedure**: 
-
+I test the program to check for possible ConcurrentModificationException by running multiple threads and updating shared data structures.
 **Results**: 
-
+No exceptions occurred during the execution of the program, which indicates that the synchronization is properly implemented.
 **What this proves**: 
-
+This prove that shared resources are safely accessed and modified, and the program avoids concurrency-related errors.
 ---
 
 ### Test 3: Correctness Verification
 **What I tested**: Verifying correct final values (total burst time, context switches, etc.)
 
 **Expected values**: 
-
+are correct total burst time, correct number of context switches, and accurate waiting time for each process.
 **Actual values**: 
-
+produced by the program matched the expected values, including total burst time, context switches, and waiting times.
 **Analysis**: 
-
+The matching results between expected and actual values confirm that the scheduling logic and synchronization mechanisms are implemented correctly.
 ---
 
 ### Test 4: Different Scenarios
-**Scenario tested**: [e.g., different time quantum, more processes, etc.]
-
+**Scenario tested**: I test different scenarios like changing the time quantum and increasing the number of processes.
 **Purpose**: 
-
+The purpose of this test is to evaluate how the system behaves under different conditions and ensure that it still produces correct and stable results.
 **Results**: 
-
+ system handled different scenarios correctly, and the results remained consistent and logical under all tested conditions.
 **What I learned**: 
-
----
+I learn that changing system parameters like time quantum and number of processes can affect performance, but proper synchronization ensures that the system remains stable and correct.
 
 ## Part 5: Reflection and Learning
 
 ### What I learned about synchronization:
 
-[6-8 sentences about key concepts, challenges, insights]
+[I learned that synchronization is very important in multi-threaded programs to prevent race conditions and ensure data consistency. Using locks and semaphores helps control access to shared resources and avoid conflicts between threads. I also learned how improper synchronization can lead to errors such as incorrect values or program crashes.]
 
 ---
 
 ### Real-world applications:
 
-Give TWO examples where synchronization is critical:
+
 
 **Example 1**: 
-
+One real-world example is banking systems, where multiple users access and update account balances at the same time. Synchronization is needed to prevent incorrect balance updates.
 **Example 2**: 
-
+flight or hotel reservations, where multiple users try to book the same seat or room at the same time. Synchronization ensures that only one booking is processed correctly.
 ---
 
 ### How I would explain synchronization to others:
 
-[Explain to someone who just finished Assignment 1 - use simple terms and analogies]
-
+[ would explain synchronization as a way to organize how multiple threads access shared resources so they do not interfere with each other. For example, it is like a queue where each person waits for their turn to use something. This ensures that the system works correctly and avoids errors.
 ---
 
 ## Part 6: GitHub Repository Information
@@ -295,16 +288,16 @@ Give TWO examples where synchronization is critical:
 ## Summary
 
 **Total time spent on assignment**: 
-
+4 hours
 **Key takeaways**: 
-1. 
-2. 
-3. 
+1. Learned how to use locks and semaphores for synchronization
+2. Understood how to prevent race conditions in multi-threaded programs
+3. Improved my understanding of thread coordination and resource sharing
 
 **Most challenging aspect**: 
-
+Understanding how to correctly use synchronization without causing errors or deadlocks
 **What I'm most proud of**: 
-
+Successfully implementing synchronization and making the program run correctly without errors
 ---
 
 **End of Documentation**
