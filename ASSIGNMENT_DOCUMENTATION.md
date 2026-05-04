@@ -274,14 +274,13 @@ flight or hotel reservations, where multiple users try to book the same seat or 
 ## Part 6: GitHub Repository Information
 
 **Repository URL**: 
-
+https://github.com/rawanyousef-hub/OS-Assignment3-rawan-Yousef
 **Number of commits**: 
-
+21 commits
 **Commit messages**: 
-1. 
-2. 
-3. 
-4. 
+1 answer Q
+2 first commit
+3 Fix typo in total waiting time variable
 
 ---
 
