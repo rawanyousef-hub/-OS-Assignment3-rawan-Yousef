@@ -165,35 +165,40 @@ try {
 ### Critical Section #2: Execution Log
 
 **What resource**: 
-
+shared resoure is executionlog list 
 **Why it needs protection**: 
-
+because multiple threads may try to add log message at same time 
 **Synchronization mechanism used**: 
-
+i used reentrantlock to protect the execution log 
 **Code snippet**:
-```java
-// Paste your implementation here
-```
-
+executionLogLock.lock();
+try {
+    SharedResources.executionLog.add(message);
+} finally {
+    executionLogLock.unlock();
+}
 **Justification**: 
-
+Use lock protects the shared execution log from being modified by multiple threads at the same time. This makes the logging safer and keeps the output more organized.
 ---
 
 ### Critical Section #3: CPU Semaphore
 
 **Purpose of semaphore**: 
-
+purpose of semaphore is to control access to the resource
 **Number of permits and why**: 
-
+i use one permit because only one process should acesss the cpu 
 **Where implemented**: 
-
+the process execution method before the process start
 **Code snippet**:
-```java
-// Paste your implementation here
-```
+cpuSemaphore.acquire();
+try {
+    // process uses the CPU here
+} finally {
+    cpuSemaphore.release();
+}
 
 **Effect on program behavior**: 
-
+The CPU semaphore prevents more than one process from using the CPU at the same time. This ensures mutual exclusion and makes the simulation behave like a single CPU system.
 ---
 
 ## Part 4: Testing and Verification (2 marks)
